@@ -151,6 +151,9 @@ func (p *Package) renderOptions(innerPath string, sourceInfo *source.Info, modIn
 		if p.Line == 0 { // invalid Position
 			return ""
 		}
+		fmt.Println(innerPath)
+		fmt.Println(p.Filename)
+		fmt.Println(p.Line)
 		fmt.Println(sourceInfo.LineURL(path.Join(innerPath, p.Filename), p.Line))
 		return sourceInfo.LineURL(path.Join(innerPath, p.Filename), p.Line)
 	}
