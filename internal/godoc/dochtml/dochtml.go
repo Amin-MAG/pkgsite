@@ -273,6 +273,9 @@ func renderInfo(ctx context.Context, fset *token.FileSet, p *doc.Package, opt Re
 	sourceLink := func(name string, node ast.Node) safehtml.HTML {
 		return linkHTML(name, opt.SourceLinkFunc(node), "Documentation-source")
 	}
+	usesLink := func(name string, node ast.Node) safehtml.HTML {
+		return safehtml.HTML{}
+	}
 	sinceVersion := func(name string) safehtml.HTML {
 		return safehtml.HTMLEscaped(opt.SinceVersionFunc(name))
 	}
@@ -285,6 +288,7 @@ func renderInfo(ctx context.Context, fset *token.FileSet, p *doc.Package, opt Re
 		"render_code":              r.CodeHTML,
 		"file_link":                fileLink,
 		"source_link":              sourceLink,
+		"uses_link":                usesLink,
 		"since_version":            sinceVersion,
 	}
 	examples := collectExamples(p)

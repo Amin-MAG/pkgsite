@@ -159,7 +159,11 @@
     </details>
   {{else}}
     <h4 tabindex="-1" id="{{$id}}" data-kind="{{.Kind}}" class="{{.HeaderClass}}">
-      <span>{{.HeaderStart}} {{source_link .Name .Decl}} <a class="Documentation-idLink" href="#{{$id}}" aria-label="Go to {{$id}}">¶</a></span>
+      <span>
+        {{.HeaderStart}} {{source_link .Name .Decl}}
+        <a class="Documentation-idLink" href="#{{$id}}" aria-label="Go to {{$id}}">¶</a>
+        <a class="Documentation-idLink" href="#{{uses_link .Name .Decl}}">Uses</a>
+      </span>
         {{- template "since_version" .FullName -}}
     </h4>{{"\n"}}
     {{template "item_body" .}}

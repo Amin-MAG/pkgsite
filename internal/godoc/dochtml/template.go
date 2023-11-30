@@ -61,6 +61,7 @@ var tmpl = map[string]any{
 	"render_code":              (*render.Renderer)(nil).CodeHTML,
 	"file_link":                func() string { return "" },
 	"source_link":              func(string, any) string { return "" },
+	"uses_link":                func(string, any) string { return "" },
 	"since_version":            func(string) safehtml.HTML { return safehtml.HTML{} },
 	"play_url":                 func(*doc.Example) string { return "" },
 	"safe_id":                  render.SafeGoID,
