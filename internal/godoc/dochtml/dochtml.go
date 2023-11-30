@@ -273,8 +273,8 @@ func renderInfo(ctx context.Context, fset *token.FileSet, p *doc.Package, opt Re
 	sourceLink := func(name string, node ast.Node) safehtml.HTML {
 		return linkHTML(name, opt.SourceLinkFunc(node), "Documentation-source")
 	}
-	usesLink := func(name string, node ast.Node) safehtml.HTML {
-		return safehtml.HTML{}
+	usesLink := func(name string, node ast.Node) string {
+		return "https://google.com"
 	}
 	sinceVersion := func(name string) safehtml.HTML {
 		return safehtml.HTMLEscaped(opt.SinceVersionFunc(name))
